@@ -1,0 +1,100 @@
+﻿<Window x:Class="Login.OrderInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Closing="OrderInformation_OnClosing"
+        Title="OrderInformation" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBox Text="Full Name" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox Name="TextBoxFullName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBox Text="Address" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox Name="TextBoxAddress" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBox Text="Zip Code" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox Name="TextBoxZipCode" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <ComboBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <ComboBoxItem IsSelected="True" IsEnabled="False" HorizontalContentAlignment="Center">Shipping method</ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Selected="PackageShipping_Selected">Package</ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Selected="CourierShipping_Selected">Courier</ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Selected="ParcelLockerShipping_Selected">Parcel locker</ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Selected="PickupAtThePoint_Selected">Pickup at the point</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="4">
+            <DataGrid Name="OrderItemsData" ColumnWidth="*" IsReadOnly="True"/>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Button Content="Cash" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Buttons"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Content="Check" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Buttons"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button Content="Debit Card" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Buttons"/>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button Content="Credit Card" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Buttons"/>
+            </Grid>
+            <Grid Grid.Column="4">
+                <Button Content="Mobile Payment" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Buttons"/>
+            </Grid>
+            <Grid Grid.Column="5">
+                <Button Content="Electronic bank transfer" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Buttons"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6">
+            <AccessText Text="Make sure all the information on this page is correct"/>
+        </Grid>
+    </Grid>
+</Window>

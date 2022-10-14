@@ -1,0 +1,55 @@
+﻿<Window x:Class="Login.AdminWelcomePageManageProducts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="AdminWelcomePageManageProducts" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Store Management System" Grid.Row="0" HorizontalAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Manage Expenses" Click="ButtonClick_ManageExpenses"/>
+            <Button Grid.Column="1" Content="Manage Stocks" Click="ButtonClick_ManageStocks"/>
+            <Button Grid.Column="2" Content="Manage Accounts" Click="ButtonClick_ManageAccounts"/>
+            <Button Grid.Column="3" Content="Manage Products" IsEnabled="False"/>
+            <Button Grid.Column="4" Content="View orders" Click="ButtonClick_Orders"/>
+            <Button Grid.Column="5" Content="Log Out" Click="ButtonClick_LogOut"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <AccessText Text="New Price" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <TextBox Text="{Binding Price}" HorizontalContentAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Column="1">
+                <Button Content="Set Price" Click="ButtonClick_SetPrice"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="5">
+            <DataGrid Name="Products" ColumnWidth="*" IsReadOnly="True"/>
+        </Grid>
+    </Grid>
+</Window>

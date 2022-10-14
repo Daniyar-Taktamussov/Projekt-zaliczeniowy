@@ -1,0 +1,57 @@
+﻿<Window x:Class="Login.AdminWelcomePageOrders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="AdminWelcomePageOrders" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Store Management System" Grid.Row="0" HorizontalAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Manage Expenses" Click="ButtonClick_ManageExpenses"/>
+            <Button Grid.Column="1" Content="Manage Stocks" Click="ButtonClick_ManageStocks"/>
+            <Button Grid.Column="2" Content="Manage Accounts" Click="ButtonClick_ManageAccounts"/>
+            <Button Grid.Column="3" Content="Manage Products" Click="ButtonClick_ManageProducts"/>
+            <Button Grid.Column="4" Content="View orders" IsEnabled="False"/>
+            <Button Grid.Column="5" Content="Log Out" Click="ButtonClick_LogOut"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="Remove" Click="ButtonClick_RemoveOrder"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0" HorizontalContentAlignment="Center">
+                <ComboBoxItem IsSelected="True" IsEnabled="False">Order Status</ComboBoxItem>
+                <ComboBoxItem Selected="Pending_Selected">Pending</ComboBoxItem>
+                <ComboBoxItem Selected="Processing_Selected">Processing</ComboBoxItem>
+                <ComboBoxItem Selected="Rejected_Selected">Rejected</ComboBoxItem>
+                <ComboBoxItem Selected="Completed_Selected">Completed</ComboBoxItem>
+            </ComboBox>
+            <Grid Grid.Column="1">
+                <Button Content="Set" Click="ButtonClick_SetOrderStatus"></Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4">
+            <DataGrid Name="Orders" ColumnWidth="*" IsReadOnly="True"/>
+        </Grid>
+    </Grid>
+</Window>
